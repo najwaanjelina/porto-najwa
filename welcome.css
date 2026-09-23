@@ -1,0 +1,463 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: #5c555c;
+}
+
+
+/* =========================
+   WELCOME PAGE
+========================= */
+
+.welcome-page {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    position: relative;
+    overflow: hidden;
+
+    padding: 20px;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            #f4e3e7 0,
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            #e2eee8 0,
+            transparent 28%
+        ),
+        #f9f6f3;
+
+    transition: opacity 0.7s ease;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.welcome-card {
+    width: 100%;
+    max-width: 550px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    border: 1px solid #eee7e4;
+
+    border-radius: 35px;
+
+    padding: 55px 45px;
+
+    box-shadow:
+        0 25px 60px rgba(150, 130, 135, 0.12);
+
+    position: relative;
+
+    z-index: 2;
+
+    animation: cardAppear 1s ease;
+}
+
+
+/* =========================
+   FLOWER
+========================= */
+
+.flower-icon {
+    width: 75px;
+    height: 75px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 0 auto 22px;
+
+    background: #f5e7ea;
+
+    border-radius: 25px;
+
+    font-size: 32px;
+
+    animation: floating 3s ease-in-out infinite;
+}
+
+
+/* =========================
+   TEXT
+========================= */
+
+.mini-title {
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #b49ca5;
+
+    font-weight: 600;
+}
+
+h1 {
+    font-size: 38px;
+
+    color: #514b52;
+
+    margin-top: 3px;
+}
+
+.name {
+    color: #a98792;
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    margin-top: 7px;
+}
+
+.description {
+    max-width: 390px;
+
+    margin: 18px auto 28px;
+
+    color: #999198;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+#exploreButton {
+    border: none;
+
+    padding: 13px 23px;
+
+    border-radius: 50px;
+
+    background: #dec4cd;
+
+    color: #675860;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
+}
+
+#exploreButton span {
+    margin-left: 8px;
+
+    font-size: 15px;
+}
+
+#exploreButton:hover {
+    transform: translateY(-3px);
+
+    background: #d6bac4;
+
+    box-shadow:
+        0 10px 22px rgba(180, 145, 155, 0.2);
+}
+
+#exploreButton:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   BOTTOM TEXT
+========================= */
+
+.bottom-text {
+    margin-top: 28px;
+
+    color: #b5adb2;
+
+    font-size: 10px;
+}
+
+
+/* =========================
+   DECORATION
+========================= */
+
+.decor {
+    position: absolute;
+
+    z-index: 1;
+
+    user-select: none;
+
+    opacity: 0.55;
+}
+
+.decor-one {
+    top: 17%;
+    left: 17%;
+
+    color: #d5adb8;
+
+    font-size: 32px;
+
+    animation: floating 4s ease-in-out infinite;
+}
+
+.decor-two {
+    top: 23%;
+    right: 18%;
+
+    color: #b7cabc;
+
+    font-size: 25px;
+}
+
+.decor-three {
+    bottom: 18%;
+    left: 21%;
+
+    color: #d8b8c2;
+
+    font-size: 32px;
+
+    animation: floating 3.5s ease-in-out infinite;
+}
+
+.decor-four {
+    bottom: 20%;
+    right: 17%;
+
+    color: #b8c9c0;
+
+    font-size: 28px;
+
+    animation: floating 4.5s ease-in-out infinite;
+}
+
+
+/* =========================
+   ANIMATION
+========================= */
+
+@keyframes cardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-7px);
+    }
+}
+
+
+/* =========================
+   EXIT ANIMATION
+========================= */
+
+.welcome-page.exit {
+    opacity: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .welcome-card {
+        padding: 42px 25px;
+
+        border-radius: 28px;
+    }
+
+    .flower-icon {
+        width: 65px;
+        height: 65px;
+
+        font-size: 28px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .name {
+        font-size: 13px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+
+    .decor-one {
+        left: 7%;
+    }
+
+    .decor-two {
+        right: 7%;
+    }
+
+    .decor-three {
+        left: 8%;
+    }
+
+    .decor-four {
+        right: 7%;
+    }
+}
+
+/* =========================
+   LOADING SCREEN
+========================= */
+
+.loading-screen {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #f9f6f3;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition: opacity 0.5s ease;
+}
+
+.loading-screen.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.loading-content {
+    text-align: center;
+}
+
+.loading-flower {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: #f5e7ea;
+
+    border-radius: 22px;
+
+    color: #c69eaa;
+
+    font-size: 28px;
+
+    animation: loadingSpin 1.5s ease-in-out infinite;
+}
+
+.loading-content h2 {
+    font-size: 18px;
+
+    color: #5c555c;
+
+    font-weight: 600;
+}
+
+.loading-content p {
+    margin-top: 5px;
+
+    color: #aaa1a7;
+
+    font-size: 11px;
+}
+
+
+/* Loading bar */
+
+.loading-bar {
+    width: 180px;
+    height: 6px;
+
+    margin: 20px auto 0;
+
+    background: #eee7e5;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+}
+
+#loadingProgress {
+    width: 0%;
+    height: 100%;
+
+    background: #dcbfc8;
+
+    border-radius: 20px;
+
+    transition: width 0.1s linear;
+}
+
+
+/* Loading animation */
+
+@keyframes loadingSpin {
+
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(12deg) scale(1.05);
+    }
+
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
