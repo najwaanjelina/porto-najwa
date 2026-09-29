@@ -1,27 +1,35 @@
-<aside>
 
+<?php
+$current_page = basename($_SERVER['PHP_SELF']);
+?>
+
+<aside>
     <div class="sidebar-brand">
-        <h3>My Dashboard </h3>
+        <h3>My Dashboard</h3>
+        <p>PERSONAL PORTFOLIO</p>
     </div>
 
     <nav>
-
-        <a href="dashboard.php" class="active">
+        <a href="dashboard_utama.php"
+           class="<?= $current_page == 'dashboard_utama.php' ? 'active' : '' ?>">
             <span>♡</span>
             Dashboard
         </a>
 
-        <a href="profil.php">
+        <a href="profil.php"
+           class="<?= $current_page == 'profil.php' ? 'active' : '' ?>">
             <span>✦</span>
             Profile
         </a>
 
-        <a href="projects.php">
+        <a href="projects.php"
+           class="<?= $current_page == 'projects.php' ? 'active' : '' ?>">
             <span>✿</span>
             Projects
         </a>
 
-        <a href="skills.php">
+        <a href="skills.php"
+           class="<?= $current_page == 'skills.php' ? 'active' : '' ?>">
             <span>☁</span>
             Skills
         </a>
@@ -32,9 +40,7 @@
             <span>↪</span>
             Logout
         </a>
-
     </nav>
-
 </aside>
 
 <style>
@@ -47,6 +53,8 @@
         padding: 35px 22px;
         background: #fffafa;
         border-right: 1px solid #eee7e4;
+        box-sizing: border-box;
+        z-index: 1000;
     }
 
     .sidebar-brand {
@@ -58,16 +66,17 @@
         color: #a98694;
         font-size: 20px;
         font-weight: 600;
-        margin-bottom: 5px;
+        margin: 0 0 5px;
     }
 
     .sidebar-brand p {
         color: #b8b0b6;
-        font-size: 11px;
+        font-size: 10px;
         letter-spacing: 1px;
+        margin: 0;
     }
 
-    nav a {
+    aside nav a {
         display: flex;
         align-items: center;
         gap: 12px;
@@ -80,31 +89,39 @@
         transition: 0.2s ease;
     }
 
-    nav a span {
+    aside nav a span {
         font-size: 17px;
         color: #c49baa;
     }
 
-    nav a:hover {
+    /* Efek saat diarahkan mouse */
+    aside nav a:hover {
         background: #f8eef1;
         color: #b18493;
+        transform: translateX(3px);
     }
 
-    nav a.active {
+    /* Halaman yang sedang aktif */
+    aside nav a.active {
         background: #f6e7ec;
         color: #a9798a;
         font-weight: 600;
+    }
+
+    aside nav a.active span {
+        color: #a9798a;
     }
 
     .logout-space {
         height: 25px;
     }
 
-    nav a.logout:hover {
+    aside nav a.logout:hover {
         background: #f6e7ec;
         color: #b18493;
     }
 
+    /* Tampilan HP */
     @media (max-width: 850px) {
         aside {
             position: relative;
@@ -119,9 +136,19 @@
             margin-bottom: 15px;
         }
 
-        nav a {
+        aside nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+
+        aside nav a {
             display: inline-flex;
-            margin-right: 5px;
+            margin-bottom: 5px;
+        }
+
+        .logout-space {
+            display: none;
         }
     }
 </style>
