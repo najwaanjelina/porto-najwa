@@ -1,7 +1,7 @@
 <?php
 // Konfigurasi database
 $host = 'localhost';
-$db = 'portofolio_1';
+$db = 'portofolio_db';
 $user = 'root';
 $pass = '';
 $charset = 'utf8mb4';

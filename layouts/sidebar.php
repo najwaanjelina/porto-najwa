@@ -10,8 +10,8 @@ $current_page = basename($_SERVER['PHP_SELF']);
     </div>
 
     <nav>
-        <a href="dashboard_utama.php"
-           class="<?= $current_page == 'dashboard_utama.php' ? 'active' : '' ?>">
+        <a href="dashboard.php"
+           class="<?= $current_page == 'dashboard.php' ? 'active' : '' ?>">
             <span>♡</span>
             Dashboard
         </a>
