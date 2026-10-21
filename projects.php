@@ -1,4 +1,3 @@
-
 <?php
 require_once __DIR__ . '/config/database.php';
 
@@ -27,7 +26,7 @@ include "layouts/sidebar.php";
 
     <div class="page-heading">
         <div>
-            <h1>My Projects <span></span></h1>
+            <h1>Projects <span></span></h1>
             <p class="subtitle">
                 Semua karya dan project yang sudah aku buat.
             </p>
@@ -57,12 +56,17 @@ include "layouts/sidebar.php";
         <div class="panel-heading">
             <div>
                 <h2>Daftar Project</h2>
-                <p>Kumpulan karya portofolio kamu ♡</p>
+                <p>Kumpulan karya portofolio kamu </p>
             </div>
 
             <span class="project-count">
                 <?= $totalProjects ?> Projects
             </span>
+
+            <a href="tambah-project.php" class="btn-add-project">
+                + Tambah Project
+            </a>
+
         </div>
 
         <?php if (empty($projects)): ?>
@@ -464,4 +468,35 @@ tbody tr:hover {
         font-size: 10px;
     }
 }
+
+
+.panel-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.btn-add-project {
+    display: inline-block;
+    padding: 8px 14px;
+    border-radius: 30px;
+    background: #bfa9bb;
+    color: white;
+    text-decoration: none;
+    font-size: 11px;
+    white-space: nowrap;
+    transition: 0.2s;
+}
+
+.btn-add-project:hover {
+    background: #9a7c87;
+}
+
+@media (max-width: 520px) {
+    .panel-actions {
+        justify-content: flex-end;
+    }
+}
+
 </style>

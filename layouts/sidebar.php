@@ -5,7 +5,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
 <aside>
     <div class="sidebar-brand">
-        <h3>My Dashboard</h3>
+        <h3>Dashboard</h3>
         <p>PERSONAL PORTFOLIO</p>
     </div>
 
@@ -13,7 +13,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
         <a href="dashboard.php"
            class="<?= $current_page == 'dashboard.php' ? 'active' : '' ?>">
             <span>♡</span>
-            Dashboard
+            Home
         </a>
 
         <a href="profil.php"
