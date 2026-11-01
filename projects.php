@@ -88,6 +88,7 @@ include "layouts/sidebar.php";
                             <th>Tools</th>
                             <th>Tautan</th>
                             <th>Tanggal Dibuat</th>
+                            <th>Aksi</th>
                         </tr>
                     </thead>
 
@@ -123,6 +124,23 @@ include "layouts/sidebar.php";
 
                                 <td class="date-cell">
                                     <?= htmlspecialchars($project['dibuat_pada'] ?? '') ?>
+                                </td>
+                                
+                                <td>
+                                    <a href="edit-project.php?id=<?= (int) $project['id'] ?>"
+                                    class="view-link">Edit</a>
+
+                                    <form method="post" action="hapus-project.php"
+                                        style="display:inline"
+                                        onsubmit="return confirm('Hapus project ini?');">
+
+                                        <input type="hidden" name="id"
+                                            value="<?= (int) $project['id'] ?>">
+
+                                        <button type="submit" class="btn-delete-project">
+                                            Hapus
+                                        </button>
+                                    </form>
                                 </td>
                             </tr>
                         <?php endforeach; ?>
@@ -497,6 +515,26 @@ tbody tr:hover {
     .panel-actions {
         justify-content: flex-end;
     }
+}
+
+
+/* Tombol Hapus */
+.btn-delete-project {
+    display: inline-block;
+    padding: 6px 11px;
+    border: none;
+    border-radius: 9px;
+    background: #f6e7ec;
+    color: #a47789;
+    font-family: 'Poppins', sans-serif;
+    font-size: 11px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.btn-delete-project:hover {
+    background: #eed5de;
+    color: #8f6d7e;
 }
 
 </style>

@@ -65,52 +65,58 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 
-<h1>Tambah Project Baru</h1>
+<div class="form-container">
 
-<?php if (!empty($errors)): ?>
-    <ul style="color: red;">
-        <?php foreach ($errors as $error): ?>
-            <li><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></li>
-        <?php endforeach; ?>
-    </ul>
-<?php endif; ?>
+    <h1>Tambah Project Baru</h1>
 
-<form method="post">
-    <label>Judul Karya</label><br>
-    <input
-        type="text"
-        name="judul_karya"
-        value="<?= htmlspecialchars($judul, ENT_QUOTES, 'UTF-8') ?>"
-    ><br><br>
+    <?php if (!empty($errors)): ?>
+        <ul>
+            <?php foreach ($errors as $error): ?>
+                <li><?= htmlspecialchars($error, ENT_QUOTES, 'UTF-8') ?></li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
 
-    <label>Deskripsi</label><br>
-    <textarea name="deskripsi" rows="4"><?= htmlspecialchars($deskripsi, ENT_QUOTES, 'UTF-8') ?></textarea><br><br>
+    <form method="post">
+        <label>Judul Karya</label>
+        <input
+            type="text"
+            name="judul_karya"
+            value="<?= htmlspecialchars($judul, ENT_QUOTES, 'UTF-8') ?>"
+        >
 
-    <label>Tools</label><br>
-    <input
-        type="text"
-        name="tools"
-        value="<?= htmlspecialchars($tools, ENT_QUOTES, 'UTF-8') ?>"
-    ><br><br>
+        <label>Deskripsi</label>
+        <textarea name="deskripsi" rows="4"><?= htmlspecialchars($deskripsi, ENT_QUOTES, 'UTF-8') ?></textarea>
 
-    <label>Tautan (Link)</label><br>
-    <input
-        type="url"
-        name="tautan"
-        value="<?= htmlspecialchars($tautan, ENT_QUOTES, 'UTF-8') ?>"
-    ><br><br>
+        <label>Tools</label>
+        <input
+            type="text"
+            name="tools"
+            value="<?= htmlspecialchars($tools, ENT_QUOTES, 'UTF-8') ?>"
+        >
 
-    <label>Tanggal Dibuat</label><br>
-    <input
-        type="date"
-        name="dibuat_pada"
-        value="<?= htmlspecialchars($dibuatPada, ENT_QUOTES, 'UTF-8') ?>"
-    ><br><br>
+        <label>Tautan (Link)</label>
+        <input
+            type="url"
+            name="tautan"
+            value="<?= htmlspecialchars($tautan, ENT_QUOTES, 'UTF-8') ?>"
+        >
 
-    <button type="submit">Simpan Project</button>
-</form>
+        <label>Tanggal Dibuat</label>
+        <input
+            type="date"
+            name="dibuat_pada"
+            value="<?= htmlspecialchars($dibuatPada, ENT_QUOTES, 'UTF-8') ?>"
+        >
 
-<p><a href="projects.php">Kembali ke Dashboard</a></p>
+        <button type="submit">Simpan Project</button>
+    </form>
+
+    <a href="projects.php" class="btn-back">
+        ← Kembali ke Dashboard
+    </a>
+
+</div>
 
 </body>
 </html>
@@ -234,5 +240,70 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         form {
             padding: 20px;
         }
+
+        
+    /* Container form di tengah halaman */
+    .form-container {
+        width: 100%;
+        max-width: 750px;
+        margin: 20px auto;
     }
+
+    /* Judul halaman */
+    .form-container h1 {
+        margin-bottom: 25px;
+    }
+
+    /* Form memenuhi lebar container */
+    .form-container form {
+        width: 100%;
+        max-width: none;
+    }
+
+    /* Jarak antar label dan input */
+    .form-container label {
+        display: block;
+        margin-top: 2px;
+    }
+
+    .form-container input,
+    .form-container textarea {
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    /* Tombol kembali ke dashboard */
+    .btn-back {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        margin-top: 22px;
+        padding: 11px 18px;
+        border: 1px solid #ead5df;
+        border-radius: 12px;
+        background: #f6e7ec;
+        color: #9a7c87;
+        font-family: 'Poppins', Arial, sans-serif;
+        font-size: 13px;
+        font-weight: 600;
+        text-decoration: none;
+        transition: 0.2s ease;
+    }
+
+    .btn-back:hover {
+        background: #bfa9bb;
+        border-color: #bfa9bb;
+        color: white;
+        text-decoration: none;
+        transform: translateY(-2px);
+    }
+
+    /* Tampilan HP */
+    @media (max-width: 600px) {
+        .form-container {
+            margin: 10px auto;
+        }
+    }
+
 </style>
